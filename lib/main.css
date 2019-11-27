@@ -1,0 +1,66 @@
+/* 引入字体 */
+@font-face { font-family: "myFont"; src: url(./MONACO.TTF); }
+* { font-family: myFont,Source Sans Pro,Helvetica Neue,Arial,sans-serif !important; }
+/* 拖拽颜色 */
+::selection { background:var(--theme-color,#4fc08d); color:#fff; }
+::-moz-selection { background:var(--theme-color,#4fc08d); color:#fff; }
+::-webkit-selection { background:var(--theme-color,#4fc08d); color:#fff;}
+/* 版心 */
+.markdown-section { max-width: 900px; }
+/* 全局图片微调 */
+.img-shadow { border-radius: 2px; box-shadow: 0 3px 10px 5px hsla(0,0%,87%,.5); }
+.markdown-section a { font-weight: 400; }
+.img-shadows { box-shadow: 0 2px 12px 0 rgba(0,0,0,.1); }
+/* 二级标题 */
+/* .app-sub-sidebar li a:before { content: "-"; } */
+/* 三级标题 */
+/* ul.children li a:before { content: "#"; } */
+/* 增加h5样式 */
+h5 { padding-left: 10px; }
+h5>a:before { content: "#"; color: #4fc08d; position: absolute; left: 0.4em; margin-top: -0.05em; padding-right: 0.5em; font-size: 1.2em; font-weight: bold; }
+/* 节点样式 */
+/* .markdown-section h5 a strong { color: #6190e8; letter-spacing: 1px; } */
+/* .markdown-section p.warn { background-color: rgba(97, 144, 232, 0.3); } */
+/* .markdown-section li, .markdown-section li>strong { color: #6190e8; } */
+/* .markdown-section li>em { font-style: normal; color: #34495e; font-weight: 700; } */
+/* .markdown-section ul a { font-weight: 700; } */
+/* 代码高亮 */
+/* .markdown-section code, */
+/* .markdown-section pre, */
+/* .markdown-section pre>code, */
+/* .markdown-section p.tip, */
+/* .markdown-section tr:nth-child(2n) { background-color: #eff4fd; } */
+/* 字体颜色 */
+/* .markdown-section code { color: #ff502c } */
+/* .markdown-section pre>code { color: #454545 } */
+/* 关键字 */
+/* .token.keyword { color: #007fff; } */
+/* 类名 */
+/* .token.class-name { color: #007fff } */
+/* 等于号 */
+/* .token.operator { color: #454545 } */
+/* 括号 */
+/* .token.punctuation { color: #454545 } */
+/* 数字 */
+/* .token.boolean, .token.number { color:#f78c6c } */
+/* 字符串 */
+/* .token.string { color: #6db600 } */
+/* 方法 */
+/* .token.function { color: #ff5572 } */
+/* 布尔 */
+/* .token.boolean { color: #ff5572 } */
+/* 标签 */
+/* .token.tag { color: #ff5572 } */
+/* 选择器 */
+/* .token.selector { color: #007fff } */
+/* 类样式 */
+/* .token.attr-name { color: #ffa600 } */
+/* 类名称 */
+/* .token.attr-value { color: #6db600 } */
+/* css属性 */
+/* .token.property { color: #ffa600 } */
+/* css符号 */
+/* .lang-html .punctuation { color: #ffa600 }
+.language-javascript .punctuation { color: #006a94 }
+.language-css .punctuation { color: #006a94} */
+/* iframe { border: 0 none !important } */
