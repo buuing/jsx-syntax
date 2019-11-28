@@ -7,11 +7,13 @@
 
 vue@2.6的版本可以搭配render函数直接使用jsx动态渲染组件, 但是2.6以前的版本必须加babel插件才可以使用
 
+<br />
+
 ## 创建组件的新方式
 
 原先的vue组件无非就是老三样: 在`<template>`里写html, `<script>`里写js, `<style>`去写css
 
-但是我们看到下面的代码, 已经没有了`<template>`标签, 取而代之的是在js里面多了一个类似于生命周期一样的render函数, style样式则没有任何变化, 还是跟以前一样
+但是我们看到下面的代码, 已经没有了`<template>`标签, 取而代之的是在js里面多了一个`类似于生命周期`一样的render函数, style样式则没有任何变化, 还是跟以前一样写在`<style>`里面
 
 ```jsx
 <script>
@@ -115,7 +117,7 @@ vue版jsx里面, 标签的class属性还是原样书写, 不必像react一样写
 <p class={{ 'title': true, 'active': this.isShow }}></p>
 <p style={{
   width: '100px',
-  fontSize: '18px'
+  fontSize: '18px',
   background: this.active ? '#fff' : '#000'
 }}></p>
 ```
@@ -149,7 +151,7 @@ jsx里面不能使用类似于`v-if`这样的指令, 只能是通过`&& 逻辑�
 </ul>
 ```
 
-简写
+简写方式:
 
 ```jsx
 <ul>
