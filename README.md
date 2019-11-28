@@ -5,7 +5,27 @@
 
 > 郑重声明: 本文档只记录vue版jsx语法, `请勿在react项目中使用`, 因为两者之间还是有些许的区别
 
-vue@2.6的版本可以搭配render函数直接使用jsx动态渲染组件, 但是2.6以前的版本必须加babel插件才可以使用
+vue@2.6的版本可以搭配render函数直接使用jsx动态渲染组件, 但是2.5及以前的版本必须加babel插件才可以使用
+
+> 以下操作适用于vue@2.5及以下
+
+- 首先安装一堆babel插件
+
+`npm install babel-plugin-syntax-jsx babel-plugin-transform-vue-jsx babel-helper-vue-jsx-merge-props babel-preset-env babel-plugin-jsx-v-model --save-dev`
+
+- 然后在`.babelrc`里面增加如下配置
+
+```js
+{
+  "presets": ["env"],
+  "plugins": ["jsx-v-model", "transform-vue-jsx"]
+}
+```
+
+> 如果你还是配置不成功
+
+- [参考1: vue官网提供的babel插件](https://github.com/vuejs/babel-plugin-transform-vue-jsx)
+- [参考2: 专门处理render里面的v-model数据双向绑定指令](https://github.com/nickmessing/babel-plugin-jsx-v-model)
 
 <br />
 
@@ -79,7 +99,7 @@ render () {
 
 在jsx语法中, 所有的js都需要写在`{ }`单花括号中, 如果想要使用data中的数据, 则需要通过this调用
 
-- 双花括号`{{}}`
+- 双花括号`{{}}`改成单花括号`{}`
 
 ```jsx
 <div>
@@ -88,13 +108,13 @@ render () {
 </div>
 ```
 
-- `v-html`
+- `v-html`改成`domPropsInnerHTML`
 
 ```jsx
 <p domPropsInnerHTML={ this.msg }></p>
 ```
 
-- `v-model`
+- `v-model`则不变, 但是其中的变量必须使用`this.属性`的方式使用
 
 ```jsx
 <p v-model={ this.msg }></p>
