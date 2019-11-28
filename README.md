@@ -5,7 +5,7 @@
 
 > 郑重声明: 本文档只记录vue版jsx语法, `请勿在react项目中使用`, 因为两者之间还是有些许的区别
 
-vue@2.6的版本可以搭配render函数直接使用jsx动态渲染组件, 但是2.5及以前的版本必须加babel插件才可以使用
+<span style="color: #409eff">vue@2.6的版本可以</span>搭配render函数<span style="color: #409eff">直接使用jsx</span>动态渲染组件, 但是2.5及以前的版本必须加babel插件才可以使用
 
 > 以下操作适用于vue@2.5及以下
 
