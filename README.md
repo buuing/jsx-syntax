@@ -33,17 +33,22 @@
 
 ## 目录
 
-- 基础用法
+- 语法篇
   - [render函数](#render函数)
   - [标签及注释](#标签及注释)
   - [渲染变量](#渲染变量)
   - [class与style](#class与style)
   - [条件渲染](#条件渲染)
   - [列表渲染](#列表渲染)
-  - [事件处理](#事件处理)
-- 高级部分
-  - [事件修饰符](javascript:;)
+
+- [事件篇](./Event.md)
+  - [绑定事件](./Event.md#绑定事件)
+  - [按键修饰符](./Event.md#按键修饰符)
+  - [事件修饰符](./Event.md#事件修饰符)
+
+<!-- - 高级部分
   - [directives指令](javascript:;)
+  - [v-slot插槽](javascript:;) -->
 
 <br />
 
@@ -76,7 +81,7 @@ export default {
 
 ## 标签及注释
 
-双标签没变化, 但是单标签必须要闭合
+- 单标签必须要闭合
 
 ```html
 <br />
@@ -84,7 +89,7 @@ export default {
 <input value="msg" />
 ```
 
-注释也得写在`{ }`花括号里面
+- 注释写在`{/* */}`里面
 
 ```jsx
 <div>
@@ -97,6 +102,8 @@ export default {
   */}
 </div>
 ```
+
+- 返回根标签
 
 在render函数中, return只能返回一个dom元素, 所以多标签必须拥有一个父元素来包裹
 
@@ -210,32 +217,6 @@ jsx里面不能使用类似于`v-if`这样的指令, 只能是通过`&& 逻辑�
 <ul>
   { this.list.map((item, index) => <li key={index}>{item}</li>) }
 </ul>
-```
-
-<br />
-
-## 事件处理
-
-在jsx里面如果想dom绑定事件, 就不能使用`v-on:click`和`@click`, 取而代之的是以on开头, 然后让事件名首字母大写即可
-
-```jsx
-<button onClick={}>点击事件</button>
-```
-
-方法调用则可以使用es5的bind方法把this传递进去 (不推荐)
-
-```jsx
-<button onClick={ this.handleClick.bind(this) }>点击事件</button>
-```
-
-但是更推荐使用es6的箭头函数直接使用外界的this
-
-```jsx
-<button onClick={e => this.handleClick('参数')}>点击事件</button>
-
-<button onClick={e => {
-  // 在里面也可以书写多行js函数, 或是调用其他方法
-}}>点击事件</button>
 ```
 
 <br />
