@@ -1,29 +1,30 @@
 
 ## 绑定事件
 
-- `点击事件`
-
 在jsx里面如果想dom绑定事件, 就不能使用`v-on:click`和`@click`, 取而代之的是以on开头, 然后让事件名首字母大写即可
 
-```jsx
-<button onClick={}>点击事件</button>
-```
+<br />
 
-方法调用则可以使用es5的bind方法把this传递进去 (不推荐)
+- `click点击事件`
+
+方法调用则可以使用`es5`的bind方法把this传递进去 (不推荐)
 
 ```jsx
 <button onClick={ this.handleClick.bind(this) }>点击事件</button>
 ```
 
-但是更推荐使用es6的箭头函数直接使用外界的this
+更推荐使用`es6`的箭头函数, 好处是可以直接使用外界的this
 
 ```jsx
 <button onClick={e => this.handleClick('参数')}>点击事件</button>
 
 <button onClick={e => {
   // 在里面也可以书写多行js代码, 或是调用其他方法
+  console.log(e)
 }}>点击事件</button>
 ```
+
+<br />
 
 - `.native原生事件`
 
@@ -31,7 +32,9 @@
 <button nativeOnClick={e => this.handleClick('参数')}>原生事件</button>
 ```
 
-- `键盘事件`
+<br />
+
+- `keyup/keydown键盘事件`
 
 ```jsx
 <input onKeyup={e => this.handleEvent()} />

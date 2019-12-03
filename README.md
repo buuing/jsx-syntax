@@ -37,6 +37,7 @@
   - [render函数](#render函数)
   - [标签及注释](#标签及注释)
   - [渲染变量](#渲染变量)
+  - [引用图片](#引用图片)
   - [class与style](#class与style)
   - [条件渲染](#条件渲染)
   - [列表渲染](#列表渲染)
@@ -161,12 +162,43 @@ render () {
 
 <br />
 
+## 引用图片
+
+- 通过`require`引入
+
+```jsx
+<img src={require('@/assets/img/logo.png')} />
+
+<div style={{
+  background: `url(${require('@/assets/img/banner.png')})`
+}}></div>
+```
+
+- 通过`import`引入
+
+```html
+<script>
+import logo from '@/assets/img/logo.png'
+
+export default {
+  render () {
+    return <div>
+      <img src={logo} />
+    </div>
+  }
+}
+</script>
+```
+
+<br />
+
 ## class与style
 
 vue版jsx里面, 标签的class属性还是原样书写, 不必像react一样写成className
 
 ```jsx
 <p class="title"></p>
+
 <p style="width: 100px; font-size: 18px"></p>
 ```
 
@@ -174,6 +206,7 @@ vue版jsx里面, 标签的class属性还是原样书写, 不必像react一样写
 
 ```jsx
 <p class={{ 'title': true, 'active': this.isShow }}></p>
+
 <p style={{
   width: '100px',
   fontSize: '18px',
@@ -205,6 +238,7 @@ jsx里面不能使用类似于`v-if`这样的指令, 只能是通过`&& 逻辑�
 <ul>
   {
     this.list.map((item, index) => {
+      // key当成属性写在li标签中即可
       return <li key={index}>{item}</li>
     })
   }
