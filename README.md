@@ -47,9 +47,11 @@
   - [按键修饰符](./Event.md#按键修饰符)
   - [事件修饰符](./Event.md#事件修饰符)
 
-<!-- - 高级部分
-  - [directives指令](javascript:;)
-  - [v-slot插槽](javascript:;) -->
+- [插槽篇](./Slot.md)
+  - [作用域插槽](./Slot.md#作用域插槽)
+
+- [指令篇](./Directive.md)
+  - [自定义指令](./Directive.md#自定义指令)
 
 <br />
 
@@ -152,6 +154,12 @@ render () {
 
 ```jsx
 <p domPropsInnerHTML={ this.msg }></p>
+
+<p {...{ // 高级写法
+  domProps: {
+    innerHTML: this.msg
+  }
+}}></p>
 ```
 
 - `v-model`则不变, 但是其中的变量必须使用`this.属性`的方式使用
