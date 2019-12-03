@@ -5,7 +5,9 @@
 
 > 郑重声明: 本文档只记录vue版jsx语法, `请勿在react项目中使用`, 因为两者之间还是有些许的区别
 
-<span style="color: #409eff">vue@2.6的版本可以</span>搭配render函数<span style="color: #409eff">直接使用jsx</span>动态渲染组件, 但是2.5及以前的版本必须加babel插件才可以使用
+`vue@2.6的版本可以`搭配render函数`直接使用jsx`动态渲染组件, 但是2.5及以前的版本必须加babel插件才可以使用
+
+<br />
 
 > 以下操作适用于vue@2.5及以下
 
@@ -29,7 +31,23 @@
 
 <br />
 
-## 创建组件的新方式
+## 目录
+
+- 基础用法
+  - [render函数](#render函数)
+  - [标签及注释](#标签及注释)
+  - [渲染变量](#渲染变量)
+  - [class与style](#class与style)
+  - [条件渲染](#条件渲染)
+  - [列表渲染](#列表渲染)
+  - [事件处理](#事件处理)
+- 高级部分
+  - [事件修饰符](javascript:;)
+  - [directives指令](javascript:;)
+
+<br />
+
+## render函数
 
 原先的vue组件无非就是老三样: 在`<template>`里写html, `<script>`里写js, `<style>`去写css
 
@@ -56,7 +74,7 @@ export default {
 
 <br />
 
-## 标签的注意事项
+## 标签及注释
 
 双标签没变化, 但是单标签必须要闭合
 
@@ -64,6 +82,20 @@ export default {
 <br />
 <img src="./images.png" />
 <input value="msg" />
+```
+
+注释也得写在`{ }`花括号里面
+
+```jsx
+<div>
+  {/* <p>单行注释</p> */}
+
+  {/*
+    <p>多行注释</p>
+    <p>多行注释</p>
+    <p>多行注释</p>
+  */}
+</div>
 ```
 
 在render函数中, return只能返回一个dom元素, 所以多标签必须拥有一个父元素来包裹
@@ -151,6 +183,7 @@ jsx里面不能使用类似于`v-if`这样的指令, 只能是通过`&& 逻辑�
 ```jsx
 <div>
   { this.isShow && <p>这是一个p标签</p> }
+
   { this.isShow ? <p>这是一个p标签</p> : null }
 </div>
 ```
@@ -185,14 +218,24 @@ jsx里面不能使用类似于`v-if`这样的指令, 只能是通过`&& 逻辑�
 
 在jsx里面如果想dom绑定事件, 就不能使用`v-on:click`和`@click`, 取而代之的是以on开头, 然后让事件名首字母大写即可
 
-可以使用es5的bind方法把this传递进去, 但是更推荐使用es6的箭头函数直接使用外界的this
+```jsx
+<button onClick={}>点击事件</button>
+```
+
+方法调用则可以使用es5的bind方法把this传递进去 (不推荐)
 
 ```jsx
-<div>
-  <button onClick={ this.handleClick.bind(this, '参数') }>点击事件</button>
-  <button onClick={e => this.handleClick('参数')}>点击事件</button>
-  <button onClick={e => {
-    // 在里面也可以书写多行js函数, 或是调用其他方法
-  }}>点击事件</button>
-</div>
+<button onClick={ this.handleClick.bind(this) }>点击事件</button>
 ```
+
+但是更推荐使用es6的箭头函数直接使用外界的this
+
+```jsx
+<button onClick={e => this.handleClick('参数')}>点击事件</button>
+
+<button onClick={e => {
+  // 在里面也可以书写多行js函数, 或是调用其他方法
+}}>点击事件</button>
+```
+
+<br />
